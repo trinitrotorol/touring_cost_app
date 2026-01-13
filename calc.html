@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ツーリング費用の計算だけするページ | Touring Cost</title>
+  <meta name="description" content="ツーリング費用を計算だけしたい人向けの軽量ページ。入力値を保存/共有しながら合計と1人あたりをすぐ確認できます。">
+  <meta name="ads" content="off">
+  <link rel="canonical" href="https://trinitrotorol.github.io/touring_cost_app/calc.html">
+  <meta property="og:title" content="ツーリング費用の計算だけするページ">
+  <meta property="og:description" content="入力してすぐ計算。広告は表示されません。">
+  <meta property="og:url" content="https://trinitrotorol.github.io/touring_cost_app/calc.html">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <main>
+    <header class="hero reveal" style="--delay: 0.05s;">
+      <div>
+        <span class="badge">計算だけしたい人向け</span>
+        <h1>ツーリング費用の計算だけする</h1>
+        <p>説明を飛ばして、すぐに合計と1人あたりを確認したい方向けの軽量ページです。入力値は保存/共有でき、広告は表示されません。</p>
+        <div class="actions">
+          <a class="button" href="index.html">解説付きの入口ページへ</a>
+          <a class="button secondary" href="guides/fuel.html">燃料費ガイドへ</a>
+        </div>
+      </div>
+      <div class="card">
+        <h2>入力のヒント</h2>
+        <p>距離・燃費・単価が分かれば燃料費が計算できます。高速・食事などはざっくりでOK。後で調整する前提で入力してください。</p>
+        <div class="badge-list">
+          <span>保存ON/OFF</span>
+          <span>共有リンク</span>
+          <span>CSV出力</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="card reveal" style="--delay: 0.1s;" data-app="touring-cost">
+      <h2>計算フォーム</h2>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="distance">距離 (km)</label>
+          <input id="distance" type="number" min="0" step="1" inputmode="numeric">
+        </div>
+        <div class="form-group">
+          <label for="fuelEfficiency">燃費 (km/L)</label>
+          <input id="fuelEfficiency" type="number" min="0" step="0.1" inputmode="decimal">
+        </div>
+        <div class="form-group">
+          <label for="gasPrice">ガソリン単価 (円/L)</label>
+          <input id="gasPrice" type="number" min="0" step="1" inputmode="numeric">
+        </div>
+        <div class="form-group">
+          <label for="highway">高速料金 (円)</label>
+          <input id="highway" type="number" min="0" step="1" inputmode="numeric">
+        </div>
+        <div class="form-group">
+          <label for="meals">食事 (円)</label>
+          <input id="meals" type="number" min="0" step="1" inputmode="numeric">
+        </div>
+        <div class="form-group">
+          <label for="lodging">宿泊 (円)</label>
+          <input id="lodging" type="number" min="0" step="1" inputmode="numeric">
+        </div>
+        <div class="form-group">
+          <label for="sightseeing">観光/温泉 (円)</label>
+          <input id="sightseeing" type="number" min="0" step="1" inputmode="numeric">
+        </div>
+        <div class="form-group">
+          <label for="other">その他 (円)</label>
+          <input id="other" type="number" min="0" step="1" inputmode="numeric">
+        </div>
+        <div class="form-group">
+          <label for="people">人数</label>
+          <input id="people" type="number" min="1" step="1" inputmode="numeric">
+        </div>
+      </div>
+
+      <div class="inline" style="margin-top: 16px;">
+        <button class="button" id="calcButton" type="button">計算する</button>
+        <button class="button secondary" id="resetButton" type="button">リセット</button>
+      </div>
+
+      <div class="toggle" style="margin-top: 12px;">
+        <input id="storageToggle" type="checkbox">
+        <label for="storageToggle">入力値をこの端末に保存する（オフにすると入力値は保存されません）</label>
+      </div>
+
+      <div class="result-box" style="margin-top: 20px;">
+        <div class="result-highlight">
+          <span>合計</span>
+          <strong id="totalCost">0円</strong>
+          <span>1人あたり <strong id="perPersonCost">0円</strong></span>
+        </div>
+
+        <div class="card" style="box-shadow: none; border: 1px solid var(--line);">
+          <h3>内訳</h3>
+          <table class="table">
+            <tbody>
+              <tr><th>ガソリン</th><td id="fuelCost">0円</td></tr>
+              <tr><th>高速料金</th><td id="highwayCost">0円</td></tr>
+              <tr><th>食事</th><td id="mealsCost">0円</td></tr>
+              <tr><th>宿泊</th><td id="lodgingCost">0円</td></tr>
+              <tr><th>観光/温泉</th><td id="sightseeingCost">0円</td></tr>
+              <tr><th>その他</th><td id="otherCost">0円</td></tr>
+              <tr><th>ガソリン使用量</th><td id="fuelLiters">0 L</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card" style="box-shadow: none; border: 1px solid var(--line);">
+          <h3>簡易感度（燃料まわり）</h3>
+          <div class="badge-list">
+            <span>距離 +10km: <strong id="distanceDelta">—</strong></span>
+            <span>燃費 -1km/L: <strong id="fuelDelta">—</strong></span>
+            <span>単価 +10円/L: <strong id="priceDelta">—</strong></span>
+          </div>
+        </div>
+
+        <div class="card" style="box-shadow: none; border: 1px solid var(--line);">
+          <h3>共有と保存</h3>
+          <div class="inline">
+            <button class="button ghost" id="shareButton" type="button">共有リンクを作る</button>
+            <button class="button secondary" id="shareCopyButton" type="button">共有リンクをコピー</button>
+          </div>
+          <div class="form-group" style="margin-top: 12px;">
+            <label for="shareUrl">共有リンク</label>
+            <input id="shareUrl" type="text" readonly>
+          </div>
+          <div class="inline" style="margin-top: 12px;">
+            <button class="button" id="downloadCsv" type="button">CSVダウンロード</button>
+            <button class="button secondary" id="copyBreakdown" type="button">内訳をコピー</button>
+          </div>
+          <div id="statusMessage" class="status" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card reveal" style="--delay: 0.15s;">
+      <h2>関連ガイド</h2>
+      <div class="guide-list grid three">
+        <a href="guides/oneday.html">日帰り予算の立て方</a>
+        <a href="guides/overnight.html">一泊二日の予算を考える</a>
+        <a href="guides/group-split.html">複数人の割り勘パターン</a>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">解説付きの入口ページへ戻る</a>
+        <a href="guides/saving.html">節約ポイントを確認する</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/calc.js" defer></script>
+  <script src="assets/js/ui.js" defer></script>
+</body>
+</html>

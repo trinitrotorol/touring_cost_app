@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ツーリング費用の見積もりガイド＆計算ツール | Touring Cost</title>
+  <meta name="description" content="燃料・高速・食事・宿泊をまとめて試算。計算だけでなく、見落としやすい費目の考え方や例を整理したツーリング費用の読み物＋計算ツールです。">
+  <meta name="ads" content="on">
+  <link rel="canonical" href="https://trinitrotorol.github.io/touring_cost_app/">
+  <meta property="og:title" content="ツーリング費用の見積もりガイド＆計算ツール">
+  <meta property="og:description" content="燃料・高速・食事・宿泊をまとめて試算。読み物と計算を一緒にまとめた入口ページ。">
+  <meta property="og:url" content="https://trinitrotorol.github.io/touring_cost_app/">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "ツーリング費用の見積もりツール",
+    "url": "https://trinitrotorol.github.io/touring_cost_app/",
+    "applicationCategory": "TravelApplication",
+    "operatingSystem": "All",
+    "description": "燃料・高速・食事・宿泊などをまとめて試算できるツーリング費用の計算ツール。"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "燃費はカタログ値で計算して良いですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "目安としては使えますが、実走行は積載量や速度で変わります。余裕を持たせたい場合はカタログ値より低めの数値を入れるのが安全です。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "高速料金が未確定のときはどう見積もればいいですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "公式の料金検索で概算を確認し、往復や区間変更の可能性がある場合は上限側の金額を入れておくと安心です。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "複数人で割り勘する場合の考え方は？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "車両関連の固定費（高速・駐車場など）は人数割り、個人消費（食事やお土産）は各自で清算する形にすると納得感が出ます。"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <main>
+    <header class="hero reveal" style="--delay: 0.05s;">
+      <div>
+        <span class="badge">読み物＋計算ツール</span>
+        <h1>ツーリング費用をサクッと見える化する</h1>
+        <p>燃料・高速・食事・宿泊。どこまで入れるかで予算の見え方は変わります。ここでは「ざっくり感を保ちつつ、抜け漏れを減らす」ための考え方を整理し、最後に計算ツールでまとめます。</p>
+        <div class="actions">
+          <a class="button" href="#calculator">説明を読んでから計算する</a>
+          <a class="button secondary" href="calc.html">計算だけしたい人はこちら</a>
+        </div>
+      </div>
+      <div class="card">
+        <h2>このページの使い方</h2>
+        <p>上段では費用の内訳や見積もりのコツを解説しています。目安をつかんだら、ページ下のツールで合計と1人あたりをチェックしてください。</p>
+        <div class="badge-list">
+          <span>燃料費</span>
+          <span>高速料金</span>
+          <span>食事</span>
+          <span>宿泊</span>
+          <span>観光</span>
+        </div>
+      </div>
+    </header>
+
+    <nav class="subnav reveal" style="--delay: 0.1s;">
+      <a href="#points">内訳の考え方</a>
+      <a href="#example">小さな試算例</a>
+      <a href="#tips">見落とし注意</a>
+      <a href="#faq">よくある質問</a>
+      <a href="#calculator">計算ツール</a>
+    </nav>
+
+    <section id="points" class="card reveal" style="--delay: 0.15s;">
+      <h2>内訳の考え方：費目ごとに“ざっくり”を作る</h2>
+      <p>ツーリングの費用は「燃料・高速・食事・宿泊・観光/温泉・その他」の6つに分けると見積もりやすくなります。完璧に当てるより、費目を分けて上限を把握するのが目的です。</p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>費目</th>
+            <th>見積もりのコツ</th>
+            <th>見落としやすいポイント</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>燃料</td>
+            <td>距離 ÷ 燃費 × 単価</td>
+            <td>渋滞や荷物で燃費低下</td>
+          </tr>
+          <tr>
+            <td>高速</td>
+            <td>公式検索で区間を確認</td>
+            <td>往復/寄り道の追加</td>
+          </tr>
+          <tr>
+            <td>食事</td>
+            <td>1回あたり×回数</td>
+            <td>休憩のカフェ代</td>
+          </tr>
+          <tr>
+            <td>宿泊</td>
+            <td>1泊単価×人数</td>
+            <td>繁忙期の価格変動</td>
+          </tr>
+          <tr>
+            <td>観光/温泉</td>
+            <td>入場料＋駐車料金</td>
+            <td>小額の積み重ね</td>
+          </tr>
+          <tr>
+            <td>その他</td>
+            <td>駐車・お土産・保険</td>
+            <td>予備費を少し確保</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="reveal" style="--delay: 0.2s;">
+      <div class="ad-slot" data-ad-slot="inArticle"></div>
+    </section>
+
+    <section id="example" class="card reveal" style="--delay: 0.25s;">
+      <h2>小さな試算例（目安）</h2>
+      <p>日帰りで200km走る想定なら、燃費25km/L・単価170円でガソリンは約1,360円。高速を使わず、食事2,000円、観光1,000円なら合計は約4,360円です。ここに高速やお土産が乗ると、5,000〜7,000円程度が現実的な幅になります。</p>
+      <div class="note">数値はあくまで目安です。区間や走り方で変動するため、少し余裕を持って入力するのがおすすめです。</div>
+    </section>
+
+    <section id="tips" class="card reveal" style="--delay: 0.3s;">
+      <h2>見落とし注意ポイント</h2>
+      <div class="grid two">
+        <div>
+          <h3>燃費は想定より落ちやすい</h3>
+          <p>ワインディングや渋滞、荷物が多い日は燃費が下がります。初回の試算は控えめな数値で計算しておくと安心です。</p>
+        </div>
+        <div>
+          <h3>高速は“寄り道分”が効く</h3>
+          <p>1区間追加するだけで想定より上がることも。帰路に違うルートを選ぶ可能性があるなら上限側で見積もりましょう。</p>
+        </div>
+        <div>
+          <h3>食事は1回の単価より回数</h3>
+          <p>朝・昼・休憩・夜と回数が増えると合計が膨らみます。小額でも回数が多いとインパクト大です。</p>
+        </div>
+        <div>
+          <h3>その他枠は“保険”</h3>
+          <p>雨で急にカッパを買う、駐車場が想定より高いなど、予備費があると判断がブレません。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="card reveal" style="--delay: 0.35s;">
+      <h2>よくある質問</h2>
+      <h3>距離がまだ決まっていない場合は？</h3>
+      <p>往復のだいたいの距離だけでも入れておくとガソリンの目安が分かります。後から数値を更新していけばOKです。</p>
+      <h3>人数割りはどう考える？</h3>
+      <p>高速・駐車場などの固定費は人数割り、食事やお土産は各自で清算すると整理しやすいです。</p>
+      <h3>料金の誤差が不安です</h3>
+      <p>誤差が大きい項目（高速・宿泊）は上限側を入れ、その他は平均値で。ざっくり幅を持たせるのがコツです。</p>
+    </section>
+
+    <section id="calculator" class="card reveal" style="--delay: 0.4s;" data-app="touring-cost">
+      <h2>ツーリング費用の計算ツール</h2>
+      <p>下の入力欄に目安を入れると合計と1人あたりが計算されます。入力値は保存できますが、オフにすることも可能です。</p>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="distance">距離 (km)</label>
+          <input id="distance" type="number" min="0" step="1" inputmode="numeric">
+        </div>
+        <div class="form-group">
+          <label for="fuelEfficiency">燃費 (km/L)</label>
+          <input id="fuelEfficiency" type="number" min="0" step="0.1" inputmode="decimal">
+        </div>
+        <div class="form-group">
+          <label for="gasPrice">ガソリン単価 (円/L)</label>
+          <input id="gasPrice" type="number" min="0" step="1" inputmode="numeric">
+        </div>
+        <div class="form-group">
+          <label for="highway">高速料金 (円)</label>
+          <input id="highway" type="number" min="0" step="1" inputmode="numeric">
+        </div>
+        <div class="form-group">
+          <label for="meals">食事 (円)</label>
+          <input id="meals" type="number" min="0" step="1" inputmode="numeric">
+        </div>
+        <div class="form-group">
+          <label for="lodging">宿泊 (円)</label>
+          <input id="lodging" type="number" min="0" step="1" inputmode="numeric">
+        </div>
+        <div class="form-group">
+          <label for="sightseeing">観光/温泉 (円)</label>
+          <input id="sightseeing" type="number" min="0" step="1" inputmode="numeric">
+        </div>
+        <div class="form-group">
+          <label for="other">その他 (円)</label>
+          <input id="other" type="number" min="0" step="1" inputmode="numeric">
+        </div>
+        <div class="form-group">
+          <label for="people">人数</label>
+          <input id="people" type="number" min="1" step="1" inputmode="numeric">
+        </div>
+      </div>
+
+      <div class="inline" style="margin-top: 16px;">
+        <button class="button" id="calcButton" type="button">計算する</button>
+        <button class="button secondary" id="resetButton" type="button">リセット</button>
+        <a class="button ghost" href="calc.html">計算だけのページへ</a>
+      </div>
+
+      <div class="toggle" style="margin-top: 12px;">
+        <input id="storageToggle" type="checkbox">
+        <label for="storageToggle">入力値をこの端末に保存する（オフにすると入力値は保存されません）</label>
+      </div>
+
+      <div class="result-box" style="margin-top: 20px;">
+        <div class="result-highlight">
+          <span>合計</span>
+          <strong id="totalCost">0円</strong>
+          <span>1人あたり <strong id="perPersonCost">0円</strong></span>
+        </div>
+
+        <div class="card" style="box-shadow: none; border: 1px solid var(--line);">
+          <h3>内訳</h3>
+          <table class="table">
+            <tbody>
+              <tr><th>ガソリン</th><td id="fuelCost">0円</td></tr>
+              <tr><th>高速料金</th><td id="highwayCost">0円</td></tr>
+              <tr><th>食事</th><td id="mealsCost">0円</td></tr>
+              <tr><th>宿泊</th><td id="lodgingCost">0円</td></tr>
+              <tr><th>観光/温泉</th><td id="sightseeingCost">0円</td></tr>
+              <tr><th>その他</th><td id="otherCost">0円</td></tr>
+              <tr><th>ガソリン使用量</th><td id="fuelLiters">0 L</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card" style="box-shadow: none; border: 1px solid var(--line);">
+          <h3>簡易感度（燃料まわり）</h3>
+          <p>距離・燃費・単価が少し変わった場合の差分目安です。</p>
+          <div class="badge-list">
+            <span>距離 +10km: <strong id="distanceDelta">—</strong></span>
+            <span>燃費 -1km/L: <strong id="fuelDelta">—</strong></span>
+            <span>単価 +10円/L: <strong id="priceDelta">—</strong></span>
+          </div>
+        </div>
+
+        <div class="card" style="box-shadow: none; border: 1px solid var(--line);">
+          <h3>共有と保存</h3>
+          <div class="inline">
+            <button class="button ghost" id="shareButton" type="button">共有リンクを作る</button>
+            <button class="button secondary" id="shareCopyButton" type="button">共有リンクをコピー</button>
+          </div>
+          <div class="form-group" style="margin-top: 12px;">
+            <label for="shareUrl">共有リンク</label>
+            <input id="shareUrl" type="text" readonly>
+          </div>
+          <div class="inline" style="margin-top: 12px;">
+            <button class="button" id="downloadCsv" type="button">CSVダウンロード</button>
+            <button class="button secondary" id="copyBreakdown" type="button">内訳をコピー</button>
+          </div>
+          <div id="statusMessage" class="status" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card reveal" style="--delay: 0.45s;">
+      <h2>関連ガイド</h2>
+      <div class="guide-list grid three">
+        <a href="guides/fuel.html">燃料費の見積もりを詳しく</a>
+        <a href="guides/highway.html">高速料金の考え方</a>
+        <a href="guides/group-split.html">複数人の割り勘パターン</a>
+      </div>
+      <div class="footer-links">
+        <a href="guides/saving.html">節約ポイントを現実的にまとめる</a>
+        <a href="guides/sample-plans.html">サンプルケース3つを見る</a>
+      </div>
+    </section>
+
+    <section class="reveal" style="--delay: 0.5s;">
+      <div class="ad-slot" data-ad-slot="displayBottom"></div>
+    </section>
+  </main>
+
+  <script src="assets/js/config.js" defer></script>
+  <script src="assets/js/ads.js" defer></script>
+  <script src="assets/js/calc.js" defer></script>
+  <script src="assets/js/ui.js" defer></script>
+</body>
+</html>
