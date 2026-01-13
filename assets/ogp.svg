@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Touring Cost">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6f1e8"/>
+      <stop offset="1" stop-color="#eadfcf"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1f6d5d"/>
+      <stop offset="1" stop-color="#c46b3d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="960" cy="150" r="180" fill="#f0e2cd"/>
+  <circle cx="260" cy="520" r="220" fill="#fff8ee"/>
+  <rect x="80" y="90" width="1040" height="450" rx="48" fill="#ffffff" stroke="#e1d6c7" stroke-width="3"/>
+  <rect x="120" y="130" width="220" height="220" rx="40" fill="url(#accent)"/>
+  <circle cx="200" cy="280" r="40" fill="#f6f1e8"/>
+  <circle cx="280" cy="280" r="40" fill="#f6f1e8"/>
+  <path d="M150 210h80l25-30h50" fill="none" stroke="#f6f1e8" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M210 210l30 40h40" fill="none" stroke="#f6f1e8" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="380" y="230" font-family="'Zen Kaku Gothic New', 'Yu Gothic', sans-serif" font-size="56" font-weight="700" fill="#2b2a28">Touring Cost</text>
+  <text x="380" y="300" font-family="'Zen Kaku Gothic New', 'Yu Gothic', sans-serif" font-size="30" fill="#6c665f">Budget guide + calculator</text>
+  <text x="380" y="360" font-family="'Zen Kaku Gothic New', 'Yu Gothic', sans-serif" font-size="24" fill="#6c665f">Fuel, highway, meals, lodging</text>
+  <rect x="380" y="405" width="360" height="48" rx="24" fill="#1f6d5d"/>
+  <text x="420" y="438" font-family="'Zen Kaku Gothic New', 'Yu Gothic', sans-serif" font-size="22" fill="#ffffff">Estimate in minutes</text>
+</svg>

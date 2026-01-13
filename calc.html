@@ -11,12 +11,39 @@
   <meta property="og:description" content="入力してすぐ計算。広告は表示されません。">
   <meta property="og:url" content="https://trinitrotorol.github.io/touring_cost_app/calc.html">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://trinitrotorol.github.io/touring_cost_app/assets/ogp.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ツーリング費用の計算だけするページ | Touring Cost">
+  <meta name="twitter:description" content="ツーリング費用を計算だけしたい人向けの軽量ページ。入力値を保存/共有しながら合計と1人あたりをすぐ確認できます。">
+  <meta name="twitter:image" content="https://trinitrotorol.github.io/touring_cost_app/assets/ogp.svg">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "ツーリング費用の計算ツール",
+  "url": "https://trinitrotorol.github.io/touring_cost_app/calc.html",
+  "applicationCategory": "TravelApplication",
+  "operatingSystem": "All",
+  "description": "ツーリング費用を計算だけしたい人向けの軽量ページ。入力値を保存/共有しながら合計と1人あたりをすぐ確認できます。"
+}
+  </script>
 </head>
 <body>
+  <header class="site-header">
+    <div class="inner">
+      <a class="site-brand" href="index.html">Touring Cost</a>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="calc.html">計算</a>
+        <a href="guides/index.html">ガイド一覧</a>
+      </nav>
+    </div>
+  </header>
   <main>
     <header class="hero reveal" style="--delay: 0.05s;">
       <div>
@@ -80,6 +107,17 @@
         </div>
       </div>
 
+      <div class="card" style="box-shadow: none; border: 1px solid var(--line); margin-top: 16px;">
+        <h3>プリセット</h3>
+        <p class="muted">よくある想定をワンタップで入力できます。数値は自由に調整してください。</p>
+        <div class="inline preset-buttons" role="group" aria-label="プリセット">
+          <button class="button secondary preset-button" type="button" data-preset="day200">日帰り200km</button>
+          <button class="button secondary preset-button" type="button" data-preset="overnight350">一泊二日350km</button>
+          <button class="button secondary preset-button" type="button" data-preset="split2">2人割り勘例</button>
+          <button class="button secondary preset-button" type="button" data-preset="camping1n">キャンプ一泊</button>
+        </div>
+      </div>
+
       <div class="inline" style="margin-top: 16px;">
         <button class="button" id="calcButton" type="button">計算する</button>
         <button class="button secondary" id="resetButton" type="button">リセット</button>
@@ -119,6 +157,38 @@
             <span>燃費 -1km/L: <strong id="fuelDelta">—</strong></span>
             <span>単価 +10円/L: <strong id="priceDelta">—</strong></span>
           </div>
+        </div>
+
+        <div class="card" style="box-shadow: none; border: 1px solid var(--line);">
+          <h3>シナリオ保存（最大5件）</h3>
+          <p class="muted">名前を付けて保存すると、あとから呼び出して比較できます。保存OFFのときは端末に保存されません。</p>
+          <div class="form-group">
+            <label for="scenarioName">シナリオ名</label>
+            <input id="scenarioName" type="text" maxlength="24" placeholder="例: 日帰り箱根">
+          </div>
+          <div class="inline" style="margin-top: 8px;">
+            <button class="button" id="saveScenario" type="button">この入力を保存</button>
+            <button class="button secondary" id="clearScenarios" type="button">保存シナリオを全削除</button>
+          </div>
+          <ul id="scenarioList" class="scenario-list" aria-live="polite"></ul>
+          <p id="scenarioHint" class="note" role="status"></p>
+        </div>
+
+        <div class="card" style="box-shadow: none; border: 1px solid var(--line);">
+          <h3>シナリオ比較</h3>
+          <p class="muted">合計・1人あたり・主要費目を横並びで見比べられます。</p>
+          <div class="table-scroll">
+            <table class="table compare-table" id="scenarioCompare">
+              <caption>保存したシナリオの比較</caption>
+              <thead>
+                <tr>
+                  <th scope="col">項目</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p id="scenarioCompareEmpty" class="note" role="status"></p>
         </div>
 
         <div class="card" style="box-shadow: none; border: 1px solid var(--line);">

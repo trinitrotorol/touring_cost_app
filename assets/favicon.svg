@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Touring Cost">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1f6d5d"/>
+      <stop offset="1" stop-color="#c46b3d"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="110" fill="url(#g)"/>
+  <circle cx="180" cy="340" r="64" fill="#f6f1e8"/>
+  <circle cx="340" cy="340" r="64" fill="#f6f1e8"/>
+  <path d="M120 240h140l40-50h70" fill="none" stroke="#f6f1e8" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M210 240l50 70h70" fill="none" stroke="#f6f1e8" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -26,6 +26,46 @@ body {
   min-height: 100vh;
 }
 
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(246, 241, 232, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header .inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.site-brand {
+  font-family: "Shippori Mincho", "Hiragino Mincho ProN", serif;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
+
+.site-nav {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 0.95rem;
+}
+
+.site-nav a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
 main {
   max-width: 1100px;
   margin: 0 auto;
@@ -89,6 +129,25 @@ nav.subnav a {
   font-weight: 600;
 }
 
+.breadcrumbs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.breadcrumbs a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.breadcrumbs span {
+  color: var(--muted);
+}
+
 section {
   margin-bottom: 36px;
 }
@@ -148,6 +207,27 @@ section {
 
 .button:hover {
   transform: translateY(-2px);
+}
+
+.button:focus-visible,
+.site-nav a:focus-visible,
+.guide-list a:focus-visible,
+.footer-links a:focus-visible,
+.breadcrumbs a:focus-visible,
+nav.subnav a:focus-visible {
+  outline: 3px solid rgba(31, 109, 93, 0.35);
+  outline-offset: 3px;
+  border-radius: 999px;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.muted {
+  color: var(--muted);
 }
 
 .note {
@@ -211,6 +291,15 @@ ul li {
   border-color: var(--accent);
 }
 
+.form-group input:focus-visible {
+  outline: 3px solid rgba(31, 109, 93, 0.35);
+}
+
+.form-group input:disabled {
+  background: #f5efe6;
+  cursor: not-allowed;
+}
+
 .inline {
   display: flex;
   flex-wrap: wrap;
@@ -259,6 +348,58 @@ ul li {
   padding: 6px 10px;
   border-radius: 999px;
   font-size: 0.85rem;
+}
+
+.preset-buttons .button {
+  box-shadow: none;
+}
+
+.preset-button.is-active {
+  background: var(--accent);
+  color: #fff;
+  border: 1px solid transparent;
+}
+
+.scenario-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  display: grid;
+  gap: 12px;
+}
+
+.scenario-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed var(--line);
+}
+
+.scenario-item:last-child {
+  border-bottom: none;
+}
+
+.scenario-name {
+  font-weight: 600;
+}
+
+.scenario-meta {
+  display: block;
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+.compare-table caption {
+  text-align: left;
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 8px;
 }
 
 .ad-slot {
@@ -325,6 +466,11 @@ ul li {
     padding: 32px 16px 60px;
   }
 
+  .site-header .inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .hero .actions {
     flex-direction: column;
     align-items: stretch;
@@ -333,5 +479,10 @@ ul li {
   .button {
     width: 100%;
     text-align: center;
+  }
+
+  .scenario-item {
+    flex-direction: column;
+    align-items: stretch;
   }
 }
